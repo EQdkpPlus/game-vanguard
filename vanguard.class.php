@@ -22,22 +22,71 @@ if ( !defined('EQDKP_INC') ){
 
 if(!class_exists('vanguard')) {
 	class vanguard extends game_generic {
-		public static $shortcuts = array();
+		public $version			= '2.1';
 		protected $this_game	= 'vanguard';
-		protected $types		= array('classes', 'races', 'filters');
-		public $icons			= array('classes', 'classes_big', 'events', 'races');
+		protected $types		= array('classes', 'races', 'filters', 'roles');
 		protected $classes		= array();
 		protected $races		= array();
 		protected $factions		= array();
 		protected $filters		= array();
 		public $langs			= array('english');
+
+		protected $class_dependencies = array(
+			array(
+				'name'		=> 'race',
+				'type'		=> 'races',
+				'admin'		=> false,
+				'decorate'	=> true,
+				'parent'	=> false
+			),
+			array(
+				'name'		=> 'class',
+				'type'		=> 'classes',
+				'admin'		=> false,
+				'decorate'	=> true,
+				'primary'	=> true,
+				'colorize'	=> true,
+				'roster'	=> true,
+				'recruitment' => true,
+				'parent'	=> array(
+					'race' => array(
+						// dependancy missing: http://vanguard.wikia.com/wiki/Races
+						0 	=> 'all',		// Unknown
+						1 	=> 'all',		// Dark Elf
+						2 	=> 'all',		// Dwarf
+						3 	=> 'all',		// Gnome
+						4 	=> 'all',		// Goblin
+						5 	=> 'all',		// Half Elf
+						6 	=> 'all',		// Halfling
+						7 	=> 'all',		// High Elf
+						8 	=> 'all',		// Kojani
+						9 	=> 'all',		// Kurashasa
+						10 	=> 'all',		// Lesser Giant
+						11 	=> 'all',		// Mordebi
+						12 	=> 'all',		// Orc
+						13 	=> 'all',		// Qaliathari
+						14 	=> 'all',		// Raki
+						15 	=> 'all',		// Thestran
+						16 	=> 'all',		// Varanjar
+						17 	=> 'all',		// Varanthari
+						18 	=> 'all',		// Vulmane
+						19 	=> 'all',		// Wood Elf
+					),
+				),
+			),
+		);
 		
+		public $default_roles = array(
+			1	=> array(3,4,5,15),
+			2	=> array(6,11,17),
+			3	=> array(7,8,10,12,13,16),
+			4	=> array(1,2,6,9,11,14,17)
+		);
 
 		protected $glang		= array();
 		protected $lang_file	= array();
 		protected $path			= '';
 		public $lang			= false;
-		public $version			= '2.1';
 
 		/**
 		* Initialises filters
@@ -72,5 +121,4 @@ if(!class_exists('vanguard')) {
 		}
 	}
 }
-if(version_compare(PHP_VERSION, '5.3.0', '<')) registry::add_const('short_vanguard', vanguard::$shortcuts);
 ?>
