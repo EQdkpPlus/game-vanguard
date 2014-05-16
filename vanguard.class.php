@@ -114,10 +114,7 @@ if(!class_exists('vanguard')) {
 			}
 		}
 
-		public function get_OnChangeInfos($install=false){
-		
-			$info = array();
-			return $info;
+		public function install($install=false){
 		}
 	}
 }
