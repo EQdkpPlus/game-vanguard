@@ -68,12 +68,14 @@ $english_array = array(
 		4	=> 'Melee'
 	),
 	'lang' => array(
-		'vanguard'		=> 'Vanguard: Saga of Heroes',
-		'unknown'		=> 'Unknown',
-		'cloth'			=> 'Cloth',
-		'leather'		=> 'Leather',
-		'chain'			=> 'Chain',
-		'plate'			=> 'Plate',
+		'vanguard'					=> 'Vanguard: Saga of Heroes',
+		'unknown'					=> 'Unknown',
+		'cloth'						=> 'Cloth',
+		'leather'					=> 'Leather',
+		'chain'						=> 'Chain',
+		'plate'						=> 'Plate',
+		'uc_race'					=> 'Race',
+		'uc_class'					=> 'Class',
 	),
 );
 ?>
