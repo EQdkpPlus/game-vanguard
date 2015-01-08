@@ -26,7 +26,7 @@ if ( !defined('EQDKP_INC') ){
 if(!class_exists('vanguard')) {
 	class vanguard extends game_generic {
 		protected static $apiLevel	= 20;
-		public $version				= '2.1';
+		public $version				= '2.2.0';
 		protected $this_game		= 'vanguard';
 		protected $types			= array('classes', 'races', 'filters', 'roles');
 		protected $classes			= array();
